@@ -23,7 +23,7 @@
     pageView.frame = CGRectMake(30, 50, self.view.frame.size.width - 60, 130);
     
     pageView.imageArr = @[@"img_00",@"img_01",@"img_02",@"img_03",@"img_04"];
-    pageView.selectColor = [UIColor orangeColor];
+    pageView.selectColor = [UIColor redColor];
     pageView.normalColor = [UIColor grayColor];
     pageView.delegate = self;
     [self.view addSubview:pageView];
