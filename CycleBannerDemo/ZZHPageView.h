@@ -18,7 +18,7 @@
 @interface ZZHPageView : UIImageView
 
 @property (nonatomic, copy)NSArray * imageArr;
-@property(nonatomic,  strong)UIColor * normalColor;
+@property (nonatomic, strong)UIColor * normalColor;
 @property (nonatomic, copy) void (^clickBlock)(NSInteger );
 @property (nonatomic, weak) id<ZZHPageViewDelegate>delegate;
 @property (nonatomic,strong)UIColor * selectColor;

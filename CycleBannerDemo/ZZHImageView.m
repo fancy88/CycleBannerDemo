@@ -7,6 +7,13 @@
 //
 
 #import "ZZHImageView.h"
+#define SuppressPerformSelectorLeakWarning(Stuff) \
+do { \
+    _Pragma("clang diagnostic push") \
+    _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+    Stuff; \
+    _Pragma("clang diagnostic pop") \
+} while (0)
 
 @interface ZZHImageView ()
 
@@ -55,9 +62,9 @@
 //触摸调用结束后
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
     //通过target 调用 action  传参 self
-    if ([self.target respondsToSelector:self.action]) {//判断对象能否调用该方法
-       [self.target performSelector: self.action withObject:self];
-        
+    if ([self.target respondsToSelector:self.action]) {
+        //判断对象能否调用该方法
+       SuppressPerformSelectorLeakWarning([self.target performSelector: self.action withObject:self]);
     }
     
 }
